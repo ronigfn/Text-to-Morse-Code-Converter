@@ -1,7 +1,6 @@
-# import statments fo sound
+# import statments for sound
 import pygame
 import time
-import sys
 
 # alphabet to morse conversion dictionary
 alpha_to_morse = {'a':'.-', 'b':'-...', 'c':'-.-.', 'd':'-..', 'e':'.', 'f':'..-.', 'g':'--.', 'h':'....', 'i':'..', 'j':'.---', 'k':'-.-', 'l':'.-..', 'm':'--', 'n':'-.', 'o':'---',
@@ -18,7 +17,7 @@ SEVEN_UNITS = 7*ONE_UNIT
 PATH = "morse_sound_files/"
 
 
-# special char check function
+# forbiden char check function
 def check_char(string):
     for char in string:
         if char in special_char:
@@ -43,8 +42,10 @@ while run:
             converted_string = converted_string + morse_char + ' '
         print(f'Morse Code: {converted_string}')
         
+        # initiate py game for sound functionality
         pygame.init()
-        # list_converted_string = [char for char in converted_string]
+
+        # parse through the converted string and play the sounds according to Morse Code rules
         for mor_char in converted_string:
             if mor_char == '/':
                 time.sleep(SEVEN_UNITS)
